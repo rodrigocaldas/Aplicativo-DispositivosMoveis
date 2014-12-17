@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!--Strings de uso comum-->
+    <string name="app_name">TrabFinal</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_tela2">Tela2</string>
+    <string name="title_activity_tela3">Tela3</string>
+    <string name="title_activity_tela4">Tela4</string>
+    <string name="title_activity_tela_ajuda">TelaAjuda</string>
+    <string name="btnHOME">Início</string>
+    <string name="btnADD">Adicionar</string>
+    <string name="btnSEARCH">Buscar</string>
+    <string name="btnBACK">Voltar</string>
+    <string name="img">Imagem de um copo</string>
+    
+    <!--Strings referentes a tela inicial(MainActivity)-->
+    <string name="txtHOME1">Bem-vindo ao app</string>
+    <string name="txtHOME2">Já Bebi</string>
+    <string name="txtHOME3">Sua última aquisição foi</string>
+    <string name="txtHOME4">Atualmente você possui</string>
+    <string name="txtHOME5">Sem aquisições até o momento</string>
+    <string name="txtHOME6">0 itens</string>
+    <string name="btnHELP">Ajuda</string>
+    
+    <!--Strings referentes a tela adicionar/editar e excluir(Tela2 e Tela4)-->
+    <string name="txtITEM">Item</string>
+    <string name="hintITEM">Nome da cerveja</string>
+    <string name="txtPRICE">Preço</string>
+    <string name="hintPRICE">Preço da cerveja</string>
+    <string name="txtDATE">Data</string>
+    <string name="hintDATE">dd.mm.aaaa</string>
+    <string name="btnSAVE">Salvar</string>
+    <string name="btnCANCEL">Cancelar</string>
+    <string name="btnCONFIRM">Confirmar</string>
+    <string name="btnEXCLUIR">Deletar</string>
+    <string name="btnEDITAR">Editar</string>
+    <string name="Success">Sucesso ao Registrar</string>
+    <string name="Fail">Falha ao registrar</string>
+    <string name="Success2">Sucesso ao editar</string>
+    <string name="Fail2">Falha ao editar</string>
+    <string name="Success3">Sucesso ao deletar</string>
+    <string name="Fail3">Falha ao deletar</string>
+    <string name="txtRATE">Nota</string>
+    <string name="txtPHOTO">Câmera</string>
+    <string name="alertYES">Sim</string>
+    <string name="alertNo">Não</string>
+    <string name="alertTITLE">Excluir exemplar</string>
+    <string name="alertMSG">Tem certeza que deseja excluir este exemplar?</string>
+    <string name="infoSEARCH">Selecione um item para edita-lo ou exclui-lo</string>
+    
+    <!--Strings referentes a tela de ajuda(TelaAjuda)-->
+    <string name="txtHELP0">SOBRE</string>
+    <string name="txtHELP1">Este app foi desenvolvido por Rodrigo Caldas como trabalho final para a disciplina de desenvolvimento para dispositivos móveis.</string>
+    <string name="txtHELP2">A idéia surgiu da necessidade de manter a organização da coleção de cerveja long neck, facilitando a aquisição de novos exemplares.</string>
+	<string name="txtHELP3">AJUDA</string>
+	<string name="txtHELP4">A tela inicial mostra a última aquisição para a coleção e a quantidade total de itens.</string>
+	<string name="txtHELP5">Para adicionar um novo exemplar basta inserir as informações na tela Adicionar, para editar ou excluir um exemplar basta selecionar um da lista na tela Buscar.</string>
+	<string name="easterEgg">Encontre a funcionalidade escondida nessa janela e divirta-se!</string>
+	
+	<!--Strings referentes a tela de busca(Tela3)-->
+	<string name="txtMSG">Nenhum exemplar cadastrado ainda.</string>
+	
+</resources>

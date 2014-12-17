@@ -1,0 +1,175 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.ufla.trabfinal.Informacoes" >
+
+    <TableRow
+        android:id="@+id/row1"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:gravity="right"
+        android:padding="5dp"
+        android:background="#DCDCDC" >
+
+        <Button 
+	        android:id="@+id/btnVOLTAR2"
+	        android:layout_width="100dp"
+	        android:layout_height="wrap_content"
+	        android:text="@string/btnBACK"/>
+
+    </TableRow>
+    
+    <TableRow
+        android:id="@+id/row2"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/row1">
+        
+        
+        <TextView 
+            android:id="@+id/textView1"
+            android:layout_width="70dp"
+        	android:layout_height="fill_parent"
+        	android:textAppearance="?android:attr/textAppearanceLarge"
+        	android:text="@string/txtITEM"/>
+        
+        <EditText
+            android:id="@+id/fieldITEM2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:ems="12"
+            android:hint="@string/hintITEM"
+            android:imeOptions="actionNext"
+            android:inputType="textImeMultiLine"
+            android:lines="1"
+            android:maxLines="1"
+            android:focusable="false"/>
+        
+    </TableRow>
+    
+    <TableRow 
+        android:id="@+id/row3"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/row2">
+        
+        <TextView 
+            android:id="@+id/textView2"
+            android:layout_width="70dp"
+        	android:layout_height="fill_parent"
+        	android:textAppearance="?android:attr/textAppearanceLarge"
+        	android:text="@string/txtPRICE"/>
+        
+        <EditText 
+            android:id="@+id/fieldVALOR2"
+            android:layout_width="fill_parent"
+        	android:layout_height="fill_parent"
+        	android:hint="@string/hintPRICE"
+        	android:ems="12"
+	    	android:inputType="numberDecimal"
+	    	android:imeOptions="actionNext" 
+	    	android:focusable="false"/>
+        
+    </TableRow>
+    
+    <TableRow 
+        android:id="@+id/row4"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/row3">
+        
+        <TextView 
+            android:id="@+id/textView3"
+            android:layout_width="70dp"
+        	android:layout_height="fill_parent"
+        	android:textAppearance="?android:attr/textAppearanceLarge"
+        	android:text="@string/txtDATE"/>
+        
+        <EditText 
+            android:id="@+id/fieldDATA2"
+            android:layout_width="fill_parent"
+        	android:layout_height="fill_parent"
+        	android:hint="@string/hintDATE"
+        	android:ems="12"
+	    	android:inputType="date"
+	    	android:focusable="false"/>
+        
+    </TableRow>
+    
+    <TableRow 
+        android:id="@+id/row5"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/row4">
+        
+        <TextView 
+            android:id="@+id/textView4"
+            android:layout_width="60dp"
+        	android:layout_height="fill_parent"
+        	android:textAppearance="?android:attr/textAppearanceLarge"
+        	android:text="@string/txtRATE"/>
+
+        <RatingBar
+            android:id="@+id/ratingBar2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:isIndicator="true"/>
+        
+    </TableRow>
+    
+    <TableRow 
+        android:id="@+id/rowEsconder"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_alignParentBottom="true">
+        
+        <Button 
+            android:id="@+id/btnEXCLUIR"
+	        android:layout_width="120dp"
+	        android:layout_height="fill_parent"
+	        android:text="@string/btnEXCLUIR"/>
+        
+        <Button 
+            android:id="@+id/btnEDITAR"
+	        android:layout_width="120dp"
+	        android:layout_height="fill_parent"
+	        android:text="@string/btnEDITAR"
+	        android:layout_marginLeft="40dp"/>
+        
+    </TableRow>
+    
+    <TableRow 
+        android:id="@+id/rowMostrar"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="20dp"
+        android:visibility="invisible"
+        android:layout_alignParentBottom="true">
+        
+        <Button 
+            android:id="@+id/btnCANCELAR"
+	        android:layout_width="120dp"
+	        android:layout_height="fill_parent"
+	        android:text="@string/btnCANCEL"/>
+        
+        <Button 
+            android:id="@+id/btnCONFIRMAR"
+	        android:layout_width="120dp"
+	        android:layout_height="fill_parent"
+	        android:text="@string/btnCONFIRM"
+	        android:layout_marginLeft="40dp"/>
+        
+    </TableRow>
+
+</RelativeLayout>

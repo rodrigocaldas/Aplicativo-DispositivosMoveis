@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.ufla.trabfinal.Buscar" >
+
+    <TableRow
+        android:id="@+id/row1"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:padding="5dp"
+        android:background="#DCDCDC" >
+
+        <Button 
+	        android:id="@+id/btnHome"
+	        android:layout_width="95dp"
+	        android:layout_height="wrap_content"
+	        android:text="@string/btnHOME"
+	        style="?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:text="@string/btnADD"
+            style="?android:attr/buttonBarButtonStyle"/>
+        
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:text="@string/btnSEARCH"
+            style="?android:attr/buttonBarButtonStyle"
+            android:textColor="@android:color/holo_blue_light"/>
+        
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:src="@drawable/ic_launcher" 
+            android:contentDescription="@string/img"/>
+
+    </TableRow>
+    
+    <TextView 
+        android:id="@+id/listViewInfo"
+        android:layout_width="fill_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/row1"
+        android:layout_marginTop="15dp"
+        android:text="@string/infoSEARCH"/>
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/listViewInfo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp" >
+    </ListView>
+
+</RelativeLayout>
