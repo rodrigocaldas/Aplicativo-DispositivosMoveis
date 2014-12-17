@@ -15,7 +15,7 @@ Motivação:
 	deixando disponível toda a coleção no dispositivo móvel do colecionador.
 	
 Funcionalidades desenvolvidas:
-	* Integração com o banco de dados SQLite;
-	* Utilização de feedback visual utilizando o Toast;
-	* Utilização de feedback auditivo utilizando o TextToSpeech;
-	* Utilização de sensor e reprodutor de audio para uma funcionalidade na tela de ajuda.
+	 Integração com o banco de dados SQLite;
+	 Utilização de feedback visual utilizando o Toast;
+	 Utilização de feedback auditivo utilizando o TextToSpeech;
+	 Utilização de sensor e reprodutor de audio para uma funcionalidade na tela de ajuda.
