@@ -1305,6 +1305,7 @@ containing a value of this type.
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0b000b;
         public static final int action_settings=0x7f0b000e;
+        public static final int alertEMPTY=0x7f0b0037;
         public static final int alertMSG=0x7f0b0035;
         public static final int alertNo=0x7f0b0033;
         public static final int alertTITLE=0x7f0b0034;
@@ -1323,7 +1324,7 @@ Strings de uso comum
         public static final int btnHOME=0x7f0b0013;
         public static final int btnSAVE=0x7f0b0025;
         public static final int btnSEARCH=0x7f0b0015;
-        public static final int easterEgg=0x7f0b003d;
+        public static final int easterEgg=0x7f0b003e;
         public static final int hintDATE=0x7f0b0024;
         public static final int hintITEM=0x7f0b0020;
         public static final int hintPRICE=0x7f0b0022;
@@ -1337,12 +1338,12 @@ Strings de uso comum
         /** Strings referentes a tela de ajuda(TelaAjuda)
 Strings referentes a tela de ajuda(TelaAjuda)
          */
-        public static final int txtHELP0=0x7f0b0037;
-        public static final int txtHELP1=0x7f0b0038;
-        public static final int txtHELP2=0x7f0b0039;
-        public static final int txtHELP3=0x7f0b003a;
-        public static final int txtHELP4=0x7f0b003b;
-        public static final int txtHELP5=0x7f0b003c;
+        public static final int txtHELP0=0x7f0b0038;
+        public static final int txtHELP1=0x7f0b0039;
+        public static final int txtHELP2=0x7f0b003a;
+        public static final int txtHELP3=0x7f0b003b;
+        public static final int txtHELP4=0x7f0b003c;
+        public static final int txtHELP5=0x7f0b003d;
         /** Strings referentes a tela inicial(MainActivity)
 Strings referentes a tela inicial(MainActivity)
          */
@@ -1359,7 +1360,7 @@ Strings referentes a tela adicionar/editar e excluir(Tela2 e Tela4)
         /** Strings referentes a tela de busca(Tela3)
 Strings referentes a tela de busca(Tela3)
          */
-        public static final int txtMSG=0x7f0b003e;
+        public static final int txtMSG=0x7f0b003f;
         public static final int txtPHOTO=0x7f0b0031;
         public static final int txtPRICE=0x7f0b0021;
         public static final int txtRATE=0x7f0b0030;

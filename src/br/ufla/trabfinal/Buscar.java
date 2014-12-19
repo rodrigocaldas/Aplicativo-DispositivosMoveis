@@ -5,6 +5,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.GestureDetector;
+import android.view.GestureDetector.OnGestureListener;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -12,17 +15,19 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-public class Buscar extends Activity {
+public class Buscar extends Activity implements OnGestureListener {
 	private Button home;
 	private Button add;
 	private ListView lv;
 	private Cursor cr;
 	private String[] preenchida;
+	private GestureDetector detector = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_buscar);
+		this.detector = new GestureDetector(this);
 		home = (Button) findViewById(R.id.btnHome);
         add = (Button) findViewById(R.id.btnAdd);
         lv = (ListView) findViewById(R.id.listView1);
@@ -95,6 +100,63 @@ public class Buscar extends Activity {
 			cr.moveToNext();
 		}		
 		return listaBd.toArray(new String[listaBd.size()]);
+	}
+	
+	//A partir daqui é responsável pelo swipe
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if(this.detector.onTouchEvent(event)) {
+             return true;
+        }
+         return super.onTouchEvent(event);
+    }
+
+	@Override
+	public boolean onDown(MotionEvent e) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void onShowPress(MotionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean onSingleTapUp(MotionEvent e) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX,
+			float distanceY) {
+		return false;
+	}
+
+	@Override
+	public void onLongPress(MotionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
+			float velocityY) {
+		if (Math.abs(e1.getY() - e2.getY()) > 250) {
+            return false;
+	    } 
+		// Movimento da direita para esquerda
+	    if(e1.getX() - e2.getX() > 100) {
+	    	// faz nada.
+	    }
+	    if (e2.getX() - e1.getX() > 100) {
+	    	Intent i = new Intent(Buscar.this, Adicionar.class);
+			startActivity(i);
+			finish();       
+	    }
+		return true;
 	}
 
 }

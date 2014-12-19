@@ -401,6 +401,7 @@ int string abc_searchview_description_voice 0x7f0b0008
 int string abc_shareactionprovider_share_with 0x7f0b000c
 int string abc_shareactionprovider_share_with_application 0x7f0b000b
 int string action_settings 0x7f0b000e
+int string alertEMPTY 0x7f0b0037
 int string alertMSG 0x7f0b0035
 int string alertNo 0x7f0b0033
 int string alertTITLE 0x7f0b0034
@@ -416,7 +417,7 @@ int string btnHELP 0x7f0b001e
 int string btnHOME 0x7f0b0013
 int string btnSAVE 0x7f0b0025
 int string btnSEARCH 0x7f0b0015
-int string easterEgg 0x7f0b003d
+int string easterEgg 0x7f0b003e
 int string hintDATE 0x7f0b0024
 int string hintITEM 0x7f0b0020
 int string hintPRICE 0x7f0b0022
@@ -427,12 +428,12 @@ int string title_activity_tela3 0x7f0b0010
 int string title_activity_tela4 0x7f0b0011
 int string title_activity_tela_ajuda 0x7f0b0012
 int string txtDATE 0x7f0b0023
-int string txtHELP0 0x7f0b0037
-int string txtHELP1 0x7f0b0038
-int string txtHELP2 0x7f0b0039
-int string txtHELP3 0x7f0b003a
-int string txtHELP4 0x7f0b003b
-int string txtHELP5 0x7f0b003c
+int string txtHELP0 0x7f0b0038
+int string txtHELP1 0x7f0b0039
+int string txtHELP2 0x7f0b003a
+int string txtHELP3 0x7f0b003b
+int string txtHELP4 0x7f0b003c
+int string txtHELP5 0x7f0b003d
 int string txtHOME1 0x7f0b0018
 int string txtHOME2 0x7f0b0019
 int string txtHOME3 0x7f0b001a
@@ -440,7 +441,7 @@ int string txtHOME4 0x7f0b001b
 int string txtHOME5 0x7f0b001c
 int string txtHOME6 0x7f0b001d
 int string txtITEM 0x7f0b001f
-int string txtMSG 0x7f0b003e
+int string txtMSG 0x7f0b003f
 int string txtPHOTO 0x7f0b0031
 int string txtPRICE 0x7f0b0021
 int string txtRATE 0x7f0b0030
