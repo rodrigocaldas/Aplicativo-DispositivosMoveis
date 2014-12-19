@@ -68,12 +68,17 @@ public class Buscar extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				Intent i = new Intent(Buscar.this, Informacoes.class);
-				cr.moveToPosition(position);
+				Bundle params = new Bundle();
+				params.putInt("posicao", position);
+				
+				/*cr.moveToPosition(position);
 				Bundle params = new Bundle();
                 params.putString("item", cr.getString(0));
                 params.putString("preco", cr.getString(1));
                 params.putString("data", cr.getString(2));
                 params.putString("nota", cr.getString(3));
+                params.putByteArray("foto", cr.getBlob(4));*/
+				
                 i.putExtras(params);
 				startActivity(i);
 				cr.close();

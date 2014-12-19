@@ -128,6 +128,30 @@
     </TableRow>
     
     <TableRow 
+        android:id="@+id/row6"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/row5">
+        
+        <Button 
+            android:id="@+id/btnCAMERA"
+	        android:layout_width="100dp"
+	        android:layout_height="50dp"
+	        android:enabled="false"
+	        android:text="@string/txtPHOTO"/>
+
+        <ImageView
+            android:id="@+id/imageViewInformacoes"
+            android:layout_width="100dp"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="60dp"
+            android:src="@drawable/ic_launcher" />
+        
+	</TableRow>
+    
+    <TableRow 
         android:id="@+id/rowEsconder"
         android:layout_width="fill_parent"
         android:layout_height="60dp"

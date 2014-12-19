@@ -12,7 +12,7 @@ public class DataBaseOperations extends SQLiteOpenHelper {
 	public static final int database_version = 1;
 	public String CREATE_QUERY = "CREATE TABLE IF NOT EXISTS "+Table.TABLENAME+"("+
 			Table.ITEM+" Text, "+Table.VALOR+" TEXT, "+Table.DMA+" TEXT, "+
-			Table.NOTA+" TEXT);";
+			Table.NOTA+" TEXT, "+Table.FOTO+" BLOB);";
 
 	public DataBaseOperations(Context context) {
 		super(context, Table.DATABASENAME, null, database_version);
@@ -30,27 +30,28 @@ public class DataBaseOperations extends SQLiteOpenHelper {
 		// TODO Auto-generated method stub
 	}
 	
-	public void persistirInfo(DataBaseOperations dob,String item, String valor, String data, String nota) {
+	public void persistirInfo(DataBaseOperations dob,String item, String valor, String data, String nota, byte[] byteArray){
 		SQLiteDatabase SQ = dob.getWritableDatabase();
 		ContentValues cv = new ContentValues();
 		cv.put(Table.ITEM, item);
 		cv.put(Table.VALOR, valor);
 		cv.put(Table.DMA, data);
 		cv.put(Table.NOTA, nota);
+		cv.put(Table.FOTO, byteArray);
 		SQ.insert(Table.TABLENAME, null, cv);
 		Log.d("Database operations","One raw inserted");
 	}
 	
 	public Cursor recuperarInfo(DataBaseOperations dop){
 		SQLiteDatabase SQ = dop.getReadableDatabase();
-		String[] colunas = {Table.ITEM, Table.VALOR, Table.DMA, Table.NOTA};
+		String[] colunas = {Table.ITEM, Table.VALOR, Table.DMA, Table.NOTA, Table.FOTO};
 		Cursor CR = SQ.query(Table.TABLENAME, colunas, null, null, null, null, Table.ITEM);
 		return CR;
 	}
 	
 	public Cursor recuperarInfo2(DataBaseOperations dop){
 		SQLiteDatabase SQ = dop.getReadableDatabase();
-		String[] colunas = {Table.ITEM, Table.VALOR, Table.DMA, Table.NOTA};
+		String[] colunas = {Table.ITEM};
 		Cursor CR = SQ.query(Table.TABLENAME, colunas, null, null, null, null, null);
 		return CR;
 	}
@@ -70,6 +71,19 @@ public class DataBaseOperations extends SQLiteOpenHelper {
 		cv.put(Table.VALOR, valor);
 		cv.put(Table.DMA, data);
 		cv.put(Table.NOTA, nota);
+		SQ.update(Table.TABLENAME, cv, selecao, ref);
+	}
+	
+	public void editarInfo2(DataBaseOperations dob,String referencia, String item, String valor, String data, String nota, byte[] byteArray){
+		SQLiteDatabase SQ = dob.getWritableDatabase();
+		String[] ref = {referencia};
+		String selecao = Table.ITEM+" = ?";
+		ContentValues cv = new ContentValues();
+		cv.put(Table.ITEM, item);
+		cv.put(Table.VALOR, valor);
+		cv.put(Table.DMA, data);
+		cv.put(Table.NOTA, nota);
+		cv.put(Table.FOTO, byteArray);
 		SQ.update(Table.TABLENAME, cv, selecao, ref);
 	}
 }

@@ -13,8 +13,8 @@ public class DataBase {
 		public static final String VALOR = "valor";
 		public static final String DMA = "dma";
 		public static final String NOTA = "nota";
+		public static final String FOTO = "foto";
 		public static final String DATABASENAME = "colecao";
 		public static final String TABLENAME = "cerva";
 	}
-
 }

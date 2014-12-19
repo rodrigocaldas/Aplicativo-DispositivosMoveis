@@ -1,21 +1,20 @@
 package br.ufla.trabfinal;
 
-import java.util.Locale;
-
-import br.ufla.trabfinal.R.string;
-
+import java.io.ByteArrayOutputStream;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Bitmap.CompressFormat;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
-import android.speech.tts.TextToSpeech.OnInitListener;
-import android.speech.tts.TextToSpeech.OnUtteranceCompletedListener;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TableRow;
 import android.widget.Toast;
@@ -30,9 +29,14 @@ public class Informacoes extends Activity {
 	private Button excluir;
 	private Button cancelar;
 	private Button confirmar;
+	private Button foto;
 	private TableRow primeiro;
 	private TableRow segundo;
-	TextToSpeech tts;
+	private ImageView img;
+	private byte[] byteArray;
+	private byte[] byteArrayAtual = null;
+	private Cursor cr;
+	private ByteArrayOutputStream stream;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,21 +51,15 @@ public class Informacoes extends Activity {
 		excluir = (Button) findViewById(R.id.btnEXCLUIR);
 		cancelar = (Button) findViewById(R.id.btnCANCELAR);
 		confirmar = (Button) findViewById(R.id.btnCONFIRMAR);
+		foto = (Button) findViewById(R.id.btnCAMERA);
 		primeiro = (TableRow) findViewById(R.id.rowEsconder);
 		segundo = (TableRow) findViewById(R.id.rowMostrar);
-		
-		//TextToSpeech
-        tts = new TextToSpeech(this, new OnInitListener() {
-			@Override
-			public void onInit(int status) {
-				tts.setLanguage(Locale.getDefault());
-			}
-		});
+		img = (ImageView) findViewById(R.id.imageViewInformacoes);
 		
 		Intent it = getIntent();
         final Bundle params = it.getExtras();
         
-        preencheCamposPassados(params, itemPassado, precoPassado, dataPassada, notaPassada);
+        preencheCamposPassados(params, itemPassado, precoPassado, dataPassada, notaPassada, img);
         
         //Ao Clicar no botão Voltar OK COMPLETO
         voltar.setOnClickListener(new OnClickListener() {
@@ -81,6 +79,7 @@ public class Informacoes extends Activity {
 				precoPassado.setFocusableInTouchMode(true);
 				dataPassada.setFocusableInTouchMode(true);
 				notaPassada.setIsIndicator(false);
+				foto.setEnabled(true);
 				primeiro.setVisibility(View.INVISIBLE);
 				segundo.setVisibility(View.VISIBLE);
 			}
@@ -101,16 +100,11 @@ public class Informacoes extends Activity {
 							String[] argumentos = {itemPassado.getText().toString()};
 							dbo.deletarInfo(dbo, argumentos);
 							Toast.makeText(Informacoes.this, R.string.Success3, Toast.LENGTH_LONG).show();
-							tts.speak(getResources().getString(R.string.Success3), TextToSpeech.QUEUE_FLUSH, null);
-							do {
-								//espera a fala terminar para encerrar a atividade.
-							} while (tts.isSpeaking());
 							Intent i = new Intent(Informacoes.this, Buscar.class);
 							startActivity(i);
 							finish();
 						} catch (Exception e) {
 							Toast.makeText(Informacoes.this, R.string.Fail3, Toast.LENGTH_LONG).show();
-							tts.speak(getResources().getString(R.string.Fail3), TextToSpeech.QUEUE_FLUSH, null);
 						}
 					}
 				})
@@ -137,47 +131,89 @@ public class Informacoes extends Activity {
 				dataPassada.setFocusableInTouchMode(false);
 				dataPassada.setFocusable(false);
 				notaPassada.setIsIndicator(true);
-				preencheCamposPassados(params, itemPassado, precoPassado, dataPassada, notaPassada);
+				foto.setEnabled(false);
+				preencheCamposPassados(params, itemPassado, precoPassado, dataPassada, notaPassada, img);
 				primeiro.setVisibility(View.VISIBLE);
 				segundo.setVisibility(View.INVISIBLE);
 			}
 		});
         
-        //Ao Clicar no botão Confirmar -
+        //Ao Clicar no botão Confirmar - OK COMPLETO
         confirmar.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				try {
 					DataBaseOperations dbo= new DataBaseOperations(Informacoes.this);
-					dbo.editarInfo(dbo, params.getString("item"), 
-							itemPassado.getText().toString(),
-							precoPassado.getText().toString(),
-							dataPassada.getText().toString(),
-							String.valueOf(notaPassada.getRating()));
+					if(byteArrayAtual != null){
+						dbo.editarInfo2(dbo, cr.getString(0), 
+								itemPassado.getText().toString(),
+								precoPassado.getText().toString(),
+								dataPassada.getText().toString(),
+								String.valueOf(notaPassada.getRating()),
+								byteArrayAtual);
+					}
+					else{
+						dbo.editarInfo(dbo, cr.getString(0), 
+								itemPassado.getText().toString(),
+								precoPassado.getText().toString(),
+								dataPassada.getText().toString(),
+								String.valueOf(notaPassada.getRating()));
+					}
+					
 					Toast.makeText(Informacoes.this, R.string.Success2, Toast.LENGTH_LONG).show();
-					tts.speak(getResources().getString(R.string.Success2), TextToSpeech.QUEUE_FLUSH, null);
-					do {
-						//espera a fala terminar para encerrar a atividade.
-					} while (tts.isSpeaking());
 					Intent i = new Intent(Informacoes.this, Buscar.class);
 					startActivity(i);
 					finish();
 					
 				} catch (Exception e) {
 					Toast.makeText(Informacoes.this, R.string.Fail2, Toast.LENGTH_LONG).show();
-					tts.speak(getResources().getString(R.string.Fail2), TextToSpeech.QUEUE_FLUSH, null);
 				}
 				
 			}
 		});
         
+        //Ao clicar no botão foto
+        foto.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent pic = new Intent("android.media.action.IMAGE_CAPTURE");
+				startActivityForResult(pic, 0);
+			}
+		});
 	}
 	
-	public void preencheCamposPassados(Bundle params, EditText e1, EditText e2, EditText e3, RatingBar r1){
-		e1.setText(params.getString("item"));
-        e2.setText(params.getString("preco"));
-        e3.setText(params.getString("data"));
-        float nota_aux = Float.parseFloat(params.getString("nota"));
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data){
+		super.onActivityResult(requestCode, resultCode, data);
+		if (data != null){
+			Bundle bundle = data.getExtras();
+			if (bundle != null){
+				Bitmap bitmapAtual = (Bitmap) bundle.get("data");
+				img.setImageBitmap(bitmapAtual);
+				
+				 stream = new ByteArrayOutputStream();
+				 bitmapAtual.compress(CompressFormat.JPEG, 70, stream);
+				 byteArrayAtual = stream.toByteArray();
+			}
+		}
+	}
+	
+	public void preencheCamposPassados(Bundle params, EditText e1, EditText e2, EditText e3, RatingBar r1, ImageView i1){
+		DataBaseOperations dbo = new DataBaseOperations(Informacoes.this);
+		cr = dbo.recuperarInfo(dbo);
+		cr.moveToPosition(params.getInt("posicao"));
+		
+		e1.setText(cr.getString(0));
+        e2.setText(cr.getString(1));
+        e3.setText(cr.getString(2));
+        float nota_aux = Float.parseFloat(cr.getString(3));
         r1.setRating(nota_aux);
+        
+        byteArray = cr.getBlob(4);
+        if(byteArray != null){
+        	Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray , 0, byteArray.length);
+            i1.setImageBitmap(bitmap);
+        }
+        
 	}
 }
