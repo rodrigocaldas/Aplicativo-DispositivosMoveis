@@ -1,7 +1,6 @@
 package br.ufla.trabfinal;
 
 import java.io.ByteArrayOutputStream;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -9,7 +8,6 @@ import android.graphics.Bitmap.CompressFormat;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -21,7 +19,6 @@ import android.widget.Toast;
 
 public class Adicionar extends Activity implements OnGestureListener {
 	private Button home;
-	private Button add;
 	private Button cancelar;
 	private Button salvar;
 	private Button search;
@@ -41,7 +38,6 @@ public class Adicionar extends Activity implements OnGestureListener {
 		setContentView(R.layout.activity_adicionar);
 		this.detector = new GestureDetector(this);
 		home = (Button) findViewById(R.id.btnHome);
-        add = (Button) findViewById(R.id.btnAdd);
         search = (Button) findViewById(R.id.btnSearch);
         salvar = (Button) findViewById(R.id.btnSAVE);
         cancelar = (Button) findViewById(R.id.btnCANCEL);

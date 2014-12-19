@@ -18,9 +18,9 @@
     <string name="txtHOME1">Welcome to the app</string>
     <string name="txtHOME2">Já Bebi</string>
     <string name="txtHOME3">Your latest acquisition was</string>
-    <string name="txtHOME4">Currently you own</string>
+    <string name="txtHOME4">You currently own</string>
     <string name="txtHOME5">No acquisitions yet</string>
-    <string name="txtHOME6">0 itens</string>
+    <string name="txtHOME6">items</string>
     <string name="btnHELP">Help</string>
     
     <!--Strings referentes a tela adicionar/editar e excluir(Tela2 e Tela4)-->
@@ -52,11 +52,15 @@
 	
     <!--Strings referentes a tela de ajuda(TelaAjuda)-->
     <string name="txtHELP0">ABOUT</string>
-    <string name="txtHELP1">This app was developed by Rodrigo Caldas as a final work for the discipline of development for mobile services.</string>
-    <string name="txtHELP2">The idea came from the need to maintain the organization of the long neck beer collection, facilitating the acquisition of new samples.</string>
-    <string name="txtHELP3">HELP</string>
-    <string name="txtHELP4">The home screen shows the latest addition to the collection and the total amount of items.</string>
-	<string name="txtHELP5">To add a new sample just enter the information in the Add screen, to edit or delete a sample simply select one from the list in the Search screen.</string>
+    <string name="txtHELP1">Application designed to help organize collections of beers, 
+        avoiding the purchase of repeated samples.</string>
+    <string name="txtHELP2">HELP</string>
+    <string name="txtHELP3">The home screen shows the latest addition to the collection 
+        and the total amount of items.</string>
+    <string name="txtHELP4">To add a new sample just enter the information in the Add 
+        screen, to edit or delete a sample simply select one from the list in the Search 
+        screen.</string>
+	<string name="txtHELP5">Please send comments and suggestions to rodrigotmcaldas@comp.ufla.br</string>
 	<string name="easterEgg">Find the hidden feature in this screen and have fun!</string>
 	
 	<!--Strings referentes a tela de busca(Tela3)-->

@@ -20,7 +20,7 @@
     <string name="txtHOME3">Sua última aquisição foi</string>
     <string name="txtHOME4">Atualmente você possui</string>
     <string name="txtHOME5">Sem aquisições até o momento</string>
-    <string name="txtHOME6">0 itens</string>
+    <string name="txtHOME6">itens</string>
     <string name="btnHELP">Ajuda</string>
     
     <!--Strings referentes a tela adicionar/editar e excluir(Tela2 e Tela4)-->
@@ -48,15 +48,19 @@
     <string name="alertTITLE">Excluir exemplar</string>
     <string name="alertMSG">Tem certeza que deseja excluir este exemplar?</string>
     <string name="infoSEARCH">Selecione um item para edita-lo ou exclui-lo</string>
-    <string name="alertEMPTY">Não é possivel cadastrar sem o nome da cerveja!</string>
+    <string name="alertEMPTY">Não é possível cadastrar sem o nome da cerveja!</string>
     
     <!--Strings referentes a tela de ajuda(TelaAjuda)-->
     <string name="txtHELP0">SOBRE</string>
-    <string name="txtHELP1">Este app foi desenvolvido por Rodrigo Caldas como trabalho final para a disciplina de desenvolvimento para dispositivos móveis.</string>
-    <string name="txtHELP2">A idéia surgiu da necessidade de manter a organização da coleção de cerveja long neck, facilitando a aquisição de novos exemplares.</string>
-	<string name="txtHELP3">AJUDA</string>
-	<string name="txtHELP4">A tela inicial mostra a última aquisição para a coleção e a quantidade total de itens.</string>
-	<string name="txtHELP5">Para adicionar um novo exemplar basta inserir as informações na tela Adicionar, para editar ou excluir um exemplar basta selecionar um da lista na tela Buscar.</string>
+    <string name="txtHELP1">App idealizado para ajudar na organização de coleções de 
+        cervejas, evitando a compra de exemplares repetidos.</string>
+    <string name="txtHELP2">AJUDA</string>
+	<string name="txtHELP3">A tela inicial mostra a última aquisição para a coleção e 
+	    a quantidade total de itens.</string>
+	<string name="txtHELP4">Para adicionar um novo exemplar basta inserir as informações 
+	    na tela Adicionar, para editar ou excluir um exemplar basta selecionar um da lista 
+	    na tela Buscar.</string>
+	<string name="txtHELP5">Favor enviar críticas e sugestões para rodrigotmcaldas@comp.ufla.br</string>
 	<string name="easterEgg">Encontre a funcionalidade escondida nessa janela e divirta-se!</string>
 	
 	<!--Strings referentes a tela de busca(Tela3)-->

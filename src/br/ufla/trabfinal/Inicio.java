@@ -4,10 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
-import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -44,9 +42,9 @@ public class Inicio extends Activity implements OnGestureListener{
 		if (tamanho > 0){
 			cr.moveToLast();
 			var1.setText(cr.getString(0));
-			var2.setText(String.valueOf(tamanho) + " itens");
 		}
-        
+		var2.setText(String.valueOf(tamanho) + R.string.txtHOME6);
+		
         //Ao clicar no botão Add
         add.setOnClickListener(new OnClickListener() {
 			@Override
