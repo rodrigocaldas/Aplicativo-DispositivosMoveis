@@ -1,10 +1,13 @@
 package br.ufla.JaBebi;
 
 import java.io.ByteArrayOutputStream;
+import java.util.Calendar;
 
 import br.ufla.trabfinal.R;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.DatePickerDialog.OnDateSetListener;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -15,13 +18,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TableRow;
 import android.widget.Toast;
 
-public class Informacoes extends Activity {
+public class Informacoes extends Activity implements OnDateSetListener {
 	private EditText itemPassado;
 	private EditText precoPassado;
 	private EditText dataPassada;
@@ -79,7 +83,7 @@ public class Informacoes extends Activity {
 			public void onClick(View v) {
 				itemPassado.setFocusableInTouchMode(true);
 				precoPassado.setFocusableInTouchMode(true);
-				dataPassada.setFocusableInTouchMode(true);
+				dataPassada.setEnabled(true);
 				notaPassada.setIsIndicator(false);
 				foto.setEnabled(true);
 				primeiro.setVisibility(View.INVISIBLE);
@@ -130,8 +134,7 @@ public class Informacoes extends Activity {
 				itemPassado.setFocusable(false);
 				precoPassado.setFocusableInTouchMode(false);
 				precoPassado.setFocusable(false);
-				dataPassada.setFocusableInTouchMode(false);
-				dataPassada.setFocusable(false);
+				dataPassada.setEnabled(false);
 				notaPassada.setIsIndicator(true);
 				foto.setEnabled(false);
 				preencheCamposPassados(params, itemPassado, precoPassado, dataPassada, notaPassada, img);
@@ -149,7 +152,7 @@ public class Informacoes extends Activity {
 					if(byteArrayAtual != null){
 						dbo.editarInfo2(dbo, cr.getString(0), 
 								itemPassado.getText().toString(),
-								precoPassado.getText().toString(),
+								Float.parseFloat(precoPassado.getText().toString()),
 								dataPassada.getText().toString(),
 								String.valueOf(notaPassada.getRating()),
 								byteArrayAtual);
@@ -157,7 +160,7 @@ public class Informacoes extends Activity {
 					else{
 						dbo.editarInfo(dbo, cr.getString(0), 
 								itemPassado.getText().toString(),
-								precoPassado.getText().toString(),
+								Float.parseFloat(precoPassado.getText().toString()),
 								dataPassada.getText().toString(),
 								String.valueOf(notaPassada.getRating()));
 					}
@@ -174,7 +177,7 @@ public class Informacoes extends Activity {
 			}
 		});
         
-        //Ao clicar no botão foto
+        //Ao clicar no botão foto - OK COMPLETO
         foto.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -182,6 +185,26 @@ public class Informacoes extends Activity {
 				startActivityForResult(pic, 0);
 			}
 		});
+        
+        //Ao clicar no dataPassada - OK COMPLETO
+        dataPassada.setOnClickListener(new OnClickListener() {
+    	   	@Override
+			public void onClick(View v) {
+    	   		
+    	   		final Calendar c = Calendar.getInstance();
+    	   		int ano = c.get(Calendar.YEAR);
+    	   	    int mes = c.get(Calendar.MONTH);
+    	   	    int dia = c.get(Calendar.DAY_OF_MONTH);
+    	   		DatePickerDialog dialog = new DatePickerDialog(Informacoes.this, Informacoes.this, ano, mes, dia);
+    	        dialog.show();
+			}
+       	});
+	}
+	
+	@Override
+	public void onDateSet(DatePicker view, int ano, int mes,
+			int dia) {
+		dataPassada.setText(ano+"."+mes+"."+dia);
 	}
 	
 	@Override
@@ -202,14 +225,16 @@ public class Informacoes extends Activity {
 	
 	public void preencheCamposPassados(Bundle params, EditText e1, EditText e2, EditText e3, RatingBar r1, ImageView i1){
 		DataBaseOperations dbo = new DataBaseOperations(Informacoes.this);
-		if(params.getInt("listagem") == 1){
+		switch (params.getInt("listagem")) {
+		case 1:
 			cr = dbo.recuperarInfo1(dbo);
-		}
-		if(params.getInt("listagem") == 2){
+			break;
+		case 2:
 			cr = dbo.recuperarInfo2(dbo);
-		}
-		if(params.getInt("listagem") == 3){
+			break;
+		case 3:
 			cr = dbo.recuperarInfo3(dbo);
+			break;
 		}
 		cr.moveToPosition(params.getInt("posicao"));
 		

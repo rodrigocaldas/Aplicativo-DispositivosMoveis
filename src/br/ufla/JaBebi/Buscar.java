@@ -138,14 +138,16 @@ public class Buscar extends Activity implements OnGestureListener {
 	}
 	
 	private void preencherLista(int id){
-		if(id == 1){
+		switch (id) {
+		case 1:
 			cr = dbo.recuperarInfo1(dbo);
-		}
-		if(id == 2){
+			break;
+		case 2:
 			cr = dbo.recuperarInfo2(dbo);
-		}
-		if(id == 3){
+			break;
+		case 3:
 			cr = dbo.recuperarInfo3(dbo);
+			break;
 		}
 		preenchida = cursorToArray(cr);
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(Buscar.this,android.R.layout.simple_list_item_2,android.R.id.text2, preenchida);

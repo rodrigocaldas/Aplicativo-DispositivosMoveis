@@ -29,7 +29,7 @@
     <string name="txtPRICE">Price</string>
     <string name="hintPRICE">Beer price</string>
     <string name="txtDATE">Date</string>
-    <string name="hintDATE">dd.mm.yyyy</string>
+    <string name="hintDATE">Pick a date</string>
     <string name="btnSAVE">Save</string>
     <string name="btnCANCEL">Cancel</string>
     <string name="btnCONFIRM">Confirm</string>

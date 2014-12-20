@@ -29,7 +29,7 @@
     <string name="txtPRICE">Preço</string>
     <string name="hintPRICE">Preço da cerveja</string>
     <string name="txtDATE">Data</string>
-    <string name="hintDATE">dd.mm.aaaa</string>
+    <string name="hintDATE">Selecione uma data</string>
     <string name="btnSAVE">Salvar</string>
     <string name="btnCANCEL">Cancelar</string>
     <string name="btnCONFIRM">Confirmar</string>

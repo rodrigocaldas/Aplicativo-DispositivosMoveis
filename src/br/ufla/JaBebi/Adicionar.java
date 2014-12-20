@@ -95,9 +95,12 @@ public class Adicionar extends Activity implements OnGestureListener, OnDateSetL
         		else{
 					try {
 						DataBaseOperations dbo= new DataBaseOperations(Adicionar.this);
-						dbo.persistirInfo(dbo, item.getText().toString(), 
-								valor.getText().toString(), data.getText().toString(),
-								String.valueOf(nota.getRating()), byteArray);
+						dbo.persistirInfo(dbo, 
+								item.getText().toString(), 
+								Float.parseFloat(valor.getText().toString()), 
+								data.getText().toString(),
+								String.valueOf(nota.getRating()), 
+								byteArray);
 						Toast.makeText(Adicionar.this, R.string.Success,Toast.LENGTH_LONG).show();
 					} catch (Exception e) {
 						Toast.makeText(Adicionar.this, R.string.Fail,Toast.LENGTH_LONG).show();
@@ -116,6 +119,7 @@ public class Adicionar extends Activity implements OnGestureListener, OnDateSetL
 			}
 		});
         
+       //Ao clicar em data
        data.setOnClickListener(new OnClickListener() {
     	   	@Override
 			public void onClick(View v) {
@@ -133,8 +137,7 @@ public class Adicionar extends Activity implements OnGestureListener, OnDateSetL
 	@Override
 	public void onDateSet(DatePicker view, int ano, int mes,
 			int dia) {
-		data.setText(dia+"."+mes+"."+ano);
-		
+		data.setText(ano+"."+mes+"."+dia);
 	}
 	
 	@Override

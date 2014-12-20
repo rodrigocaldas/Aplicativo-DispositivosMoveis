@@ -11,7 +11,7 @@ import android.util.Log;
 public class DataBaseOperations extends SQLiteOpenHelper {
 	public static final int database_version = 1;
 	public String CREATE_QUERY = "CREATE TABLE IF NOT EXISTS "+Table.TABLENAME+"("+
-			Table.ITEM+" Text, "+Table.VALOR+" TEXT, "+Table.DMA+" TEXT, "+
+			Table.ITEM+" Text, "+Table.VALOR+" REAL, "+Table.DMA+" TEXT, "+
 			Table.NOTA+" TEXT, "+Table.FOTO+" BLOB);";
 
 	public DataBaseOperations(Context context) {
@@ -30,7 +30,7 @@ public class DataBaseOperations extends SQLiteOpenHelper {
 		// TODO Auto-generated method stub
 	}
 	
-	public void persistirInfo(DataBaseOperations dob,String item, String valor, String data, String nota, byte[] byteArray){
+	public void persistirInfo(DataBaseOperations dob,String item, float valor, String data, String nota, byte[] byteArray){
 		SQLiteDatabase SQ = dob.getWritableDatabase();
 		ContentValues cv = new ContentValues();
 		cv.put(Table.ITEM, item);
@@ -76,7 +76,7 @@ public class DataBaseOperations extends SQLiteOpenHelper {
 		SQ.delete(Table.TABLENAME, selecao, argumentos);
 	}
 	
-	public void editarInfo(DataBaseOperations dob,String referencia, String item, String valor, String data, String nota){
+	public void editarInfo(DataBaseOperations dob,String referencia, String item, float valor, String data, String nota){
 		SQLiteDatabase SQ = dob.getWritableDatabase();
 		String[] ref = {referencia};
 		String selecao = Table.ITEM+" = ?";
@@ -88,7 +88,7 @@ public class DataBaseOperations extends SQLiteOpenHelper {
 		SQ.update(Table.TABLENAME, cv, selecao, ref);
 	}
 	
-	public void editarInfo2(DataBaseOperations dob,String referencia, String item, String valor, String data, String nota, byte[] byteArray){
+	public void editarInfo2(DataBaseOperations dob,String referencia, String item, float valor, String data, String nota, byte[] byteArray){
 		SQLiteDatabase SQ = dob.getWritableDatabase();
 		String[] ref = {referencia};
 		String selecao = Table.ITEM+" = ?";

@@ -73,7 +73,6 @@
         	android:hint="@string/hintPRICE"
         	android:ems="12"
 	    	android:inputType="numberDecimal"
-	    	android:imeOptions="actionNext" 
 	    	android:focusable="false"/>
         
     </TableRow>
@@ -98,9 +97,10 @@
             android:layout_width="fill_parent"
         	android:layout_height="fill_parent"
         	android:hint="@string/hintDATE"
+        	android:focusable="false"
+        	android:enabled="false"
         	android:ems="12"
-	    	android:inputType="date"
-	    	android:focusable="false"/>
+	    	android:inputType="date"/>
         
     </TableRow>
     
