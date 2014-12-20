@@ -2,7 +2,7 @@
 <resources>
 	
     <!--Strings de uso comum-->
-    <string name="app_name">TrabFinal</string>
+    <string name="app_name">Já Bebi</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_tela2">Tela2</string>
     <string name="title_activity_tela3">Tela3</string>
@@ -23,7 +23,7 @@
     <string name="txtHOME6">items</string>
     <string name="btnHELP">Help</string>
     
-    <!--Strings referentes a tela adicionar/editar e excluir(Tela2 e Tela4)-->
+    <!--Strings referentes a tela adicionar e editar/excluir(Tela2 e Tela4)-->
     <string name="txtITEM">Item</string>
     <string name="hintITEM">Beer name</string>
     <string name="txtPRICE">Price</string>
@@ -65,5 +65,8 @@
 	
 	<!--Strings referentes a tela de busca(Tela3)-->
 	<string name="txtMSG">No sample registered yet.</string>
+	<string name="btnNOME">Name</string>
+	<string name="btnPRECO">Price</string>
+	<string name="btnDATA">Date</string>
 	
 </resources>

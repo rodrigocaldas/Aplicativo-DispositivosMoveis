@@ -15,6 +15,7 @@ Motivação:
 	deixando disponível toda a coleção no dispositivo móvel do colecionador.
 	
 Funcionalidades desenvolvidas:
+
 	 Utilização do banco de dados SQLite;
 	 
 	 Utilização de feedback visual utilizando Toast;

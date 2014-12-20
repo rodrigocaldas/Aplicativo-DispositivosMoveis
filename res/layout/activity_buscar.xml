@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.ufla.trabfinal.Buscar" >
+    tools:context="br.ufla.JaBebi.Buscar" >
 
     <TableRow
         android:id="@+id/row1"
@@ -10,7 +10,7 @@
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:padding="5dp"
-        android:background="#DCDCDC" >
+        android:background="@color/gray" >
 
         <Button 
 	        android:id="@+id/btnHome"
@@ -43,11 +43,56 @@
 
     </TableRow>
     
+    
+    <TableRow 
+        android:id="@+id/row2"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:layout_below="@+id/row1"
+        android:background="@color/blue" >
+        
+        <TextView 
+        android:id="@+id/listViewListar"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:text="Listar coleção: "/>
+        
+        <Button
+            android:id="@+id/btnNOME"
+            android:layout_width="65dp"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="5dp"
+            android:text="@string/btnNOME"
+            android:enabled="false"
+            style="?android:attr/buttonBarButtonStyle"/>
+        
+        <Button
+            android:id="@+id/btnPRECO"
+            android:layout_width="65dp"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="5dp"
+            android:text="@string/btnPRECO"
+            android:enabled="false"
+            style="?android:attr/buttonBarButtonStyle"/>
+        
+        <Button
+            android:id="@+id/btnDATA"
+            android:layout_width="65dp"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="5dp"
+            android:text="@string/btnDATA"
+            android:enabled="false"
+            style="?android:attr/buttonBarButtonStyle"/>
+        
+    </TableRow>
+    
     <TextView 
         android:id="@+id/listViewInfo"
         android:layout_width="fill_parent"
         android:layout_height="20dp"
-        android:layout_below="@+id/row1"
+        android:layout_below="@+id/row2"
         android:layout_marginTop="15dp"
         android:text="@string/infoSEARCH"/>
 

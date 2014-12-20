@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.ufla.trabfinal.Adicionar" >
+    tools:context="br.ufla.JaBebi.Adicionar" >
 
     <TableRow
         android:id="@+id/row1"
@@ -10,8 +10,7 @@
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:padding="5dp"
-        android:background="#DCDCDC" 
-        >
+        android:background="@color/gray">
 
         <Button 
 	        android:id="@+id/btnHome"
@@ -93,8 +92,7 @@
         	android:layout_height="fill_parent"
         	android:hint="@string/hintPRICE"
         	android:ems="12"
-	    	android:inputType="numberDecimal"
-	    	android:imeOptions="actionNext" />
+	    	android:inputType="numberDecimal"/>
         
     </TableRow>
     
@@ -118,6 +116,7 @@
             android:layout_width="fill_parent"
         	android:layout_height="fill_parent"
         	android:hint="@string/hintDATE"
+        	android:focusable="false"
         	android:ems="12"
 	    	android:inputType="date"/>
         

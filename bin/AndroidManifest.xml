@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".Inicio"
+            android:name="br.ufla.JaBebi.Inicio"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar">
             <intent-filter>
@@ -23,22 +23,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Adicionar"
+            android:name="br.ufla.JaBebi.Adicionar"
             android:label="@string/title_activity_tela2" 
             android:theme="@android:style/Theme.Holo.Light.NoActionBar">
         </activity>
         <activity
-            android:name=".Buscar"
+            android:name="br.ufla.JaBebi.Buscar"
             android:label="@string/title_activity_tela3" 
             android:theme="@android:style/Theme.Holo.Light.NoActionBar">
         </activity>
         <activity
-            android:name=".Informacoes"
+            android:name="br.ufla.JaBebi.Informacoes"
             android:label="@string/title_activity_tela4" 
             android:theme="@android:style/Theme.Holo.Light.NoActionBar">
         </activity>
         <activity
-            android:name=".Ajuda"
+            android:name="br.ufla.JaBebi.Ajuda"
             android:label="@string/title_activity_tela_ajuda" 
             android:theme="@android:style/Theme.Holo.Light.NoActionBar">
         </activity>
