@@ -101,7 +101,7 @@ public class Buscar extends Activity implements OnGestureListener {
 			}
 		});
         
-      //Ao clicar no botão Data
+        //Ao clicar no botão Data
         listarData.setOnClickListener(new OnClickListener() {
 			@SuppressLint("ResourceAsColor") @Override
 			public void onClick(View v) {
