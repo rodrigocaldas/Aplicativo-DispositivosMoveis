@@ -2,7 +2,6 @@ package br.ufla.JaBebi;
 
 import java.io.ByteArrayOutputStream;
 import java.util.Calendar;
-
 import br.ufla.trabfinal.R;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -72,6 +71,9 @@ public class Informacoes extends Activity implements OnDateSetListener {
 			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(Informacoes.this, Buscar.class);
+				Bundle paramsBuscar = new Bundle();
+				paramsBuscar.putString("lista", params.getString("listagem"));
+				i.putExtras(paramsBuscar);
 				startActivity(i);
 				finish();
 			}
@@ -107,6 +109,9 @@ public class Informacoes extends Activity implements OnDateSetListener {
 							dbo.deletarInfo(dbo, argumentos);
 							Toast.makeText(Informacoes.this, R.string.Success3, Toast.LENGTH_LONG).show();
 							Intent i = new Intent(Informacoes.this, Buscar.class);
+							Bundle paramsBuscar = new Bundle();
+							paramsBuscar.putString("lista", params.getString("listagem"));
+							i.putExtras(paramsBuscar);
 							startActivity(i);
 							finish();
 						} catch (Exception e) {
@@ -167,6 +172,9 @@ public class Informacoes extends Activity implements OnDateSetListener {
 					
 					Toast.makeText(Informacoes.this, R.string.Success2, Toast.LENGTH_LONG).show();
 					Intent i = new Intent(Informacoes.this, Buscar.class);
+					Bundle paramsBuscar = new Bundle();
+					paramsBuscar.putString("lista", params.getString("listagem"));
+					i.putExtras(paramsBuscar);
 					startActivity(i);
 					finish();
 					
@@ -225,7 +233,7 @@ public class Informacoes extends Activity implements OnDateSetListener {
 	
 	public void preencheCamposPassados(Bundle params, EditText e1, EditText e2, EditText e3, RatingBar r1, ImageView i1){
 		DataBaseOperations dbo = new DataBaseOperations(Informacoes.this);
-		switch (params.getInt("listagem")) {
+		switch (Integer.parseInt(params.getString("listagem"))) {
 		case 1:
 			cr = dbo.recuperarInfo1(dbo);
 			break;
@@ -237,7 +245,6 @@ public class Informacoes extends Activity implements OnDateSetListener {
 			break;
 		}
 		cr.moveToPosition(params.getInt("posicao"));
-		
 		e1.setText(cr.getString(0));
         e2.setText(cr.getString(1));
         e3.setText(cr.getString(2));

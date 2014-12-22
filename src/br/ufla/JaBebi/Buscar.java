@@ -1,12 +1,11 @@
 package br.ufla.JaBebi;
 
 import java.util.ArrayList;
-
 import br.ufla.trabfinal.R;
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
@@ -29,7 +28,7 @@ public class Buscar extends Activity implements OnGestureListener {
 	private Cursor cr;
 	private String[] preenchida;
 	private GestureDetector detector = null;
-	private int _id = 1;
+	private String _id;
 	private DataBaseOperations dbo = new DataBaseOperations(Buscar.this);
 
 	@Override
@@ -44,23 +43,15 @@ public class Buscar extends Activity implements OnGestureListener {
         listarData= (Button) findViewById(R.id.btnDATA);
         lv = (ListView) findViewById(R.id.listView1);
         
+        Intent it = getIntent();
+        final Bundle params = it.getExtras();
+        _id = params.getString("lista");
+        preencherLista(_id);
         
-		cr = dbo.recuperarInfo1(dbo);
-		if (cr.getCount() > 0){
-			preenchida = cursorToArray(cr);
-			ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_2,android.R.id.text2, preenchida);
-        	lv.setAdapter(adapter);
-        	listarNome.setEnabled(true);
-        	listarPreco.setEnabled(true);
-        	listarData.setEnabled(true);
-		}
-		else{
-			Toast.makeText(Buscar.this, R.string.txtMSG, Toast.LENGTH_SHORT).show();
-		}
+        
         
         //Ao clicar no botão Home
         home.setOnClickListener(new OnClickListener() {
-			
 			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(Buscar.this, Inicio.class);
@@ -72,7 +63,6 @@ public class Buscar extends Activity implements OnGestureListener {
         
         //Ao clicar no botão Search
         add.setOnClickListener(new OnClickListener() {
-			
 			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(Buscar.this, Adicionar.class);
@@ -87,25 +77,25 @@ public class Buscar extends Activity implements OnGestureListener {
         listarNome.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				_id = 1;
+				_id = "1";
 				preencherLista(_id);
 			}
 		});
         
         //Ao clicar no botão Preco
         listarPreco.setOnClickListener(new OnClickListener() {
-			@SuppressLint("ResourceAsColor") @Override
+			@Override
 			public void onClick(View v) {
-				_id = 2;
+				_id = "2";
 				preencherLista(_id);
 			}
 		});
         
         //Ao clicar no botão Data
         listarData.setOnClickListener(new OnClickListener() {
-			@SuppressLint("ResourceAsColor") @Override
+			@Override
 			public void onClick(View v) {
-				_id = 3;
+				_id = "3";
 				preencherLista(_id);
 			}
 		});
@@ -117,7 +107,7 @@ public class Buscar extends Activity implements OnGestureListener {
 					int position, long id) {
 				Intent i = new Intent(Buscar.this, Informacoes.class);
 				Bundle params = new Bundle();
-				params.putInt("listagem", _id);
+				params.putString("listagem", _id);
 				params.putInt("posicao", position);
                 i.putExtras(params);
 				startActivity(i);
@@ -137,21 +127,38 @@ public class Buscar extends Activity implements OnGestureListener {
 		return listaBd.toArray(new String[listaBd.size()]);
 	}
 	
-	private void preencherLista(int id){
-		switch (id) {
+	private void preencherLista(String id){
+		switch (Integer.parseInt(id)) {
 		case 1:
 			cr = dbo.recuperarInfo1(dbo);
+			listarNome.setTextColor(Color.RED);
+			listarPreco.setTextColor(Color.BLACK);
+			listarData.setTextColor(Color.BLACK);
 			break;
 		case 2:
 			cr = dbo.recuperarInfo2(dbo);
+			listarNome.setTextColor(Color.BLACK);
+			listarPreco.setTextColor(Color.RED);
+			listarData.setTextColor(Color.BLACK);
 			break;
 		case 3:
 			cr = dbo.recuperarInfo3(dbo);
+			listarNome.setTextColor(Color.BLACK);
+			listarPreco.setTextColor(Color.BLACK);
+			listarData.setTextColor(Color.RED);
 			break;
 		}
-		preenchida = cursorToArray(cr);
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(Buscar.this,android.R.layout.simple_list_item_2,android.R.id.text2, preenchida);
-    	lv.setAdapter(adapter);
+		if (cr.getCount() > 0){
+			preenchida = cursorToArray(cr);
+			ArrayAdapter<String> adapter = new ArrayAdapter<String>(Buscar.this,android.R.layout.simple_list_item_2,android.R.id.text2, preenchida);
+	    	lv.setAdapter(adapter);
+	    	listarNome.setEnabled(true);
+	    	listarPreco.setEnabled(true);
+	    	listarData.setEnabled(true);
+		}
+    	else{
+			Toast.makeText(Buscar.this, R.string.txtMSG, Toast.LENGTH_SHORT).show();
+		}
 	}
 	
 	//A partir daqui é responsável pelo swipe

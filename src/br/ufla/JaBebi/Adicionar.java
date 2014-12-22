@@ -71,6 +71,9 @@ public class Adicionar extends Activity implements OnGestureListener, OnDateSetL
 			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(Adicionar.this, Buscar.class);
+				Bundle paramsBuscar = new Bundle();
+				paramsBuscar.putString("lista", "1");
+				i.putExtras(paramsBuscar);
 				startActivity(i);
 				finish();
 				
@@ -89,7 +92,7 @@ public class Adicionar extends Activity implements OnGestureListener, OnDateSetL
         salvar.setOnClickListener(new OnClickListener() {
         	@Override
 			public void onClick(View v) {
-        		if (item.getText().toString().equals("")){
+        		if (item.getText().toString().equals("") || (valor.getText().toString().equals(""))){
         			Toast.makeText(Adicionar.this, R.string.alertEMPTY, Toast.LENGTH_LONG).show();
         		}
         		else{
@@ -212,6 +215,9 @@ public class Adicionar extends Activity implements OnGestureListener, OnDateSetL
 		// Movimento da direita para esquerda
 	    if(e1.getX() - e2.getX() > 100) {
 	    	Intent i = new Intent(Adicionar.this, Buscar.class);
+	    	Bundle paramsBuscar2 = new Bundle();
+	    	paramsBuscar2.putString("lista", "1");
+			i.putExtras(paramsBuscar2);
 			startActivity(i);
 			finish();
 	    }

@@ -61,6 +61,9 @@ public class Inicio extends Activity implements OnGestureListener{
 			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(Inicio.this, Buscar.class);
+				Bundle paramsBuscar = new Bundle();
+				paramsBuscar.putString("lista", "1");
+				i.putExtras(paramsBuscar);
 				startActivity(i);
 				finish();
 			}
