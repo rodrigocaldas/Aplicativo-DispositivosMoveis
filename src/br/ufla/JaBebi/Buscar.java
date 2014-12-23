@@ -117,13 +117,33 @@ public class Buscar extends Activity implements OnGestureListener {
 		});
 	}
 	
-	private String[] cursorToArray(Cursor cr){
+	/*Alteração para a aversão 1.1
+	 Colocando preço ou data na listagem de acordo com o usuário*/
+	private String[] cursorToArray(Cursor cr, String id){
 		ArrayList<String> listaBd = new ArrayList<String>();
 		cr.moveToFirst();
-		for (int i = 0; i < cr.getCount(); i++){
-			listaBd.add(cr.getString(0));
-			cr.moveToNext();
-		}		
+		switch (Integer.parseInt(id)) {
+		case 1:
+			for (int i = 0; i < cr.getCount(); i++){
+				listaBd.add(cr.getString(0));
+				cr.moveToNext();
+			}
+			break;
+		case 2:
+			for (int i = 0; i < cr.getCount(); i++){
+				listaBd.add(getResources().getString(R.string.txtPRICE)+": "+cr.getString(1)+"  / "+
+							getResources().getString(R.string.txtITEM)+": "+cr.getString(0));
+				cr.moveToNext();
+			}		
+			break;
+		case 3:
+			for (int i = 0; i < cr.getCount(); i++){
+				listaBd.add(getResources().getString(R.string.txtDATE)+": "+cr.getString(2)+"  / "+
+							getResources().getString(R.string.txtITEM)+": "+cr.getString(0));
+				cr.moveToNext();
+			}		
+			break;
+		}
 		return listaBd.toArray(new String[listaBd.size()]);
 	}
 	
@@ -149,7 +169,7 @@ public class Buscar extends Activity implements OnGestureListener {
 			break;
 		}
 		if (cr.getCount() > 0){
-			preenchida = cursorToArray(cr);
+			preenchida = cursorToArray(cr, id);
 			ArrayAdapter<String> adapter = new ArrayAdapter<String>(Buscar.this,android.R.layout.simple_list_item_2,android.R.id.text2, preenchida);
 	    	lv.setAdapter(adapter);
 	    	listarNome.setEnabled(true);

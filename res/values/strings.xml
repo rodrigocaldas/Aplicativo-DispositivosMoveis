@@ -48,7 +48,7 @@
     <string name="alertTITLE">Delete sample</string>
     <string name="alertMSG">Are you sure you want to delete this sample?</string>
     <string name="infoSEARCH">Pick an item to edit or remove it</string>
-    <string name="alertEMPTY">It\'s not possible to register without the name or the price!</string>
+    <string name="alertEMPTY">It\'s not possible to register without the name and the price!</string>
 	
     <!--Strings referentes a tela de ajuda(TelaAjuda)-->
     <string name="txtHELP0">ABOUT</string>

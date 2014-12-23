@@ -48,7 +48,7 @@
     <string name="alertTITLE">Excluir exemplar</string>
     <string name="alertMSG">Tem certeza que deseja excluir este exemplar?</string>
     <string name="infoSEARCH">Selecione um item para edita-lo ou exclui-lo</string>
-    <string name="alertEMPTY">Não é possível cadastrar sem o nome ou preço!</string>
+    <string name="alertEMPTY">Não é possível cadastrar sem o nome e preço!</string>
     
     <!--Strings referentes a tela de ajuda(TelaAjuda)-->
     <string name="txtHELP0">SOBRE</string>
