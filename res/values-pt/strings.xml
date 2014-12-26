@@ -13,6 +13,7 @@
     <string name="btnSEARCH">Buscar</string>
     <string name="btnBACK">Voltar</string>
     <string name="img">Imagem de um copo</string>
+    <string name="facebook_app_id"></string>
     
     <!--Strings referentes a tela inicial(MainActivity)-->
     <string name="txtHOME1">Bem-vindo ao app</string>

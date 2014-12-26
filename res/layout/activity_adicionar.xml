@@ -42,13 +42,37 @@
 
     </TableRow>
     
+    <TableRow 
+        android:id="@+id/rowFace"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/row1"
+        android:background="@color/blue" >
+        
+        <TextView 
+            android:id="@+id/textViewFace"
+            android:layout_width="wrap_content"
+        	android:layout_height="fill_parent"
+        	android:gravity="center"
+        	android:textSize="12sp"
+        	android:textAppearance="?android:attr/textAppearanceLarge"
+        	android:text="Esteja logado para publicar no facebook"/>
+        
+        <Button
+            android:id="@+id/btnFace"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Logar" />
+        
+    </TableRow>
+    
     <TableRow
         android:id="@+id/row2"
         android:layout_width="fill_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="5dp"
-        android:layout_below="@+id/row1">
+        android:layout_below="@+id/rowFace">
         
         
         <TextView 
@@ -170,8 +194,7 @@
     <TableRow 
         android:id="@+id/row7"
         android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
+        android:layout_height="55dp"
         android:layout_alignParentBottom="true">
         
         <Button 
@@ -185,7 +208,15 @@
 	        android:layout_width="100dp"
 	        android:layout_height="fill_parent"
 	        android:text="@string/btnSAVE"
-	        android:layout_marginLeft="80dp"/>
+	        android:layout_marginLeft="5dp"/>
+        
+        <Button 
+            android:id="@+id/btnSAVEface"
+	        android:layout_width="wrap_content"
+	        android:layout_height="fill_parent"
+	        android:text="Save e Share"
+	        android:visibility="gone"
+	        android:layout_marginLeft="5dp"/>
         
     </TableRow>
     
